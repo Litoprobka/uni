@@ -65,7 +65,7 @@ Tогда:
 3. $\exists \lim\limits_{n \to \infty} (x_n*y_n) = a * b$
 4. $b \neq 0 \implies \exists \lim\limits_{n \to \infty} (x_n/y_n) = a / b$
 
-#### Докозательства
+#### Доказательства
 1. $\forall \epsilon > 0 \space \exists N_1 \in N : \forall n>N_1 \implies |x_n-a|< {\epsilon \over |A|}$  
 $|A_{x_1} - A_a|=|A||x_n-a| < |A|{\epsilon \over |A|}=\epsilon$  
 2. *TODO*
