@@ -2,7 +2,7 @@
 id: x3ke20lnysm62c3ytstrwxm
 title: Множества
 desc: ''
-updated: 1663267243702
+updated: 1663617158332
 created: 1662203709500
 ---
 ## Определения множества
@@ -119,19 +119,19 @@ $W$ - плохое $\implies W \notin W \implies W -$ хорошее
 * перечисление всех его элементов: $A=\lbrace a_1, a_2, a_3... \rbrace$
 * задание надмножества и условия: $A=\lbrace x \in N : x < 10 \rbrace$
 #### Декартово произведение
-$A \x B = \lbrace (a, b) | a \in A,\, b \in B \rbrace$
+$A \times B = \lbrace (a, b) | a \in A,\, b \in B \rbrace$
 
 ##### Примеры
 $$
-\text{Плоскость} - \R \x \R \\
-\text{Пространство} - \R \x \R \x \R \\
+\text{Плоскость} - \R \times \R \\
+\text{Пространство} - \R \times \R \times \R \\
 \text{Корпуса } K = \lbrace А, Б, В, Г, Д \rbrace \\
-\text{Номер аудитории} - K \x \N \\
-\text{Время} - {часы} \x {минуты}
+\text{Номер аудитории} - K \times \N \\
+\text{Время} - {часы} \times {минуты}
 $$
 
 ##### Кортеж
-$X_1 \x X_2 \x ... \x X_n \\
+$X_1 \times X_2 \times ... \times X_n \\
 = \lbrace (x_1, x_2, ... x_n) | x_i \in X_i \rbrace$
 
 #### Множество подмножеств множества A
