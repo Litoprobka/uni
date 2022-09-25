@@ -2,7 +2,7 @@
 id: ar9abllhc7rlg1rgm3r1wqe
 title: Последовательность. Предел последовательности
 desc: ''
-updated: 1663352827162
+updated: 1664129894379
 created: 1663265851396
 ---
 
@@ -160,7 +160,7 @@ Rinse and repeat
 2. Пусть $M_0 - \epsilon < M_0 \implies \exists I_k \ni M_0 : I_k > M_0-\epsilon \implies \exists x_k \in X : x_k \in I_k \implies x_k > M_0 - \epsilon \implies M_0 - \epsilon$ не является верхней гранью $\implies$ чтд.
 
 ### Теорема Больцано-Вейерштрасса
-Для всякой ограниченной последовательности $\lbrace x_n \rbrace$ существые подпоследовательность $\lbrace x_{n_k} \rbrace \subset \lbrace x_{n_k} \rbrace$, сходящаяяся к числу $a$, $\exists \lim\limits_{k \to \infty} x_{n_k}=a$
+Для всякой ограниченной последовательности $\lbrace x_n \rbrace$ существует подпоследовательность $\lbrace x_{n_k} \rbrace \subset \lbrace x_{n_k} \rbrace$, сходящаяяся к числу $a$, $\exists \lim\limits_{k \to \infty} x_{n_k}=a$
 
 #### Пример последовательности без предела
 $x_n = (-1)^n$
@@ -168,8 +168,76 @@ $x_n = (-1)^n$
 #### Доказательство
 $\forall n, M_1 \leq x_n \leq M_2$  
 Выберем $x_{n_1}$ в $[M_1, M_2]$  
-Выберем $x_{n_2}$ в одном из $[M_1, x_{n_1}]$ и $[x_{n_1}, M_2]$, в котором содержится бесконечное число элементов  
+Выберем $x_{n_2} : n_2 > n_1$ в одном из $[M_1, x_{n_1}]$ и $[x_{n_1}, M_2]$, в котором содержится бесконечное число элементов  
 Принцип вложенных отрезков, получаем предел $a$ (доказать дома)
 
+---
+> Определение. Точка $a$ - предельная точка последовательности $\lbrace x_n \rbrace$, если $\forall U_\epsilon(a)$ содержит бесконечное число членов $\lbrace x_n \rbrace$
+
+Пример случая с двумя предельными точками: $(-1)^n+{1 \over n}$
+
+#### Задача
+Пусть $\lbrace a_n \rbrace$ - произвольная последовательность. Тогда $\exists\lbrace x_n \rbrace :$ множество предельных точек $\lbrace x_n \rbrace$ содержит $\lbrace a_n \rbrace$
+
+##### Пример
+Множество $\Q$ - счётно, пусть $a \in R$ - произвольная $a = a_0 + a_1 + a_2 + ...$; $\lbrace b_n = a_0, a_1, a_2 ... \rbrace, b_n \in \Q, \lim\limits_{n \to \infty}$ b_n = a
+
 ### Фундаментальные последовательности
-> Определение. Последовательность $\lbrace X_n \rbrace$ назыевается фундаментальной последовательностью...
+Последовательность $\lbrace X_n \rbrace$ назыевается фундаментальной последовательностью (последовательностью Коши), если $\forall \epsilon>0 \exists N_\epsilon \in \N : \forall m,n>n_\epsilon \implies |x_m-x_n|<\epsilon$
+
+Теорема. $\lbrace X_n \rbrace$ - фундаментальная, $\iff \exists \lim\limits_{n \to \infty} x_n=a, a \in \R$  
+Доказательство.  
+$\forall \epsilon > 0 \exists N_\epsilon \in \N : \forall n>N_\epsilon \implies |x_n-a| < {\epsilon \over 2}$. Пусть $n,m>N_\epsilon,$ тогда $|x_n-x_m|=|(x_n-a)-(x_m-a)| < |x_n-a| + |x_m-a| < \epsilon$
+
+Докажем, что $\lbrace X_n \rbrace$ - фундаментальная: пусть $\epsilon = 1$, тогда $\exists N_1 \in \N : \forall m,n_0>N_1 \implies |x_m-x_{n_0}| < 1 \iff -1 < x_{n_1} - x_{n_0} < 1 \iff x_{n_0}-1 < x_{n_1} < x_{n_0}+1 \implies$ вне отрезка содержится конечное число членов последовательности; по теореме Больцано-Вейерштрасса $\implies \exists \lbrace X_{n_k} \rbrace \subset \lbrace X_n \rbrace : \exists \lim\limits_{k \to \infty}=a, a \in \R$
+
+* $\forall \epsilon>0 \exists N_1 : \forall m,n>N_1 \implies |x_n-x_m| < {\epsilon \over 2}$  
+* $\exists N_0 \forall k>N_0 \implies |X_{n_k}-a| < {\epsilon \over 2}$  
+
+Пусть $N=$ что-то $\lbrace N, n_{n_0} \rbrace$, тогда $\forall n > N \implies |x_n-a|=|x_n-x_{n_k}+x_{n_k}-a| < |x_n-x_{n_k}|+|x_{n_k}-a| < \epsilon$
+
+### Предел функции
+$f(x)={x^2 - 3x + 2 \over x -1}, x \neq 1$  
+$f(x)={(x-1)(x-2) \over (x-1)} = x-2 \to -1$
+
+> Определение. Число $A$ называется пределом функции $f(x)$ при $x \to a$, если $\forall \epsilon > 0 \exists \delta > 0 : \forall x : 0 < |x-a| < \delta \implies |f(x)-A|<\epsilon$  
+> 
+$A = \lim f(x) \iff \forall U(A) \exists \dot U(a) : \forall x \in \dot U(a) \implies f(x) \in U(A)$  
+(доказать эквивалентность определений)
+
+> Определение. Окрестностью точки $a$, $U(a)$, называется любое подмножество $U(a) \subset \R : \exists U_\epsilon(a) \subset U(a); \space \dot U(a)=U(a) \setminus \lbrace a \rbrace$
+
+
+> Определение. Проколотой $\epsilon$-окрестностью точки $a$ называется $\dot U_\epsilon = \rbrace x \in \R : 0 < |x - a| < \epsilon \rbrace$
+
+> Определение предела по Гейне. Число $A$ называется пределом $f(x)$ при $x \to a \iff \forall \lbrace x_n \rbrace : \exists \lim\limits_{n \to \infty} x_n=a \space \exists \lim\limits_{n \to \infty} f(x_n)=a$ 
+
+Теорема. Определение предела функции по Коши эквивалентно определению предела функции по Гейне.  
+
+Доказательство
+* $\exists \lim\limits_{x \to a} f(x)=A \implies \forall \epsilon>0 \exists \delta_\epsilon>0 : \forall x : 0 < |x-a| < \delta_\epsilon \implies |f(x)-A| < \epsilon,$ пусть $\lbrace x_n \rbrace : \lim\limits_{n \to \infty} x_n=a \implies \exists N_{\delta_\epsilon} \in \N : \forall n> N_{\delta_\epsilon} \implies |x_n-A|<\delta_\epsilon \implies \lim\limits_{n \to \infty} f(x_n)=A$
+* От противного: пусть $f(x)$ имеет предел по Гейне, но не имеет предела по Коши. $\exists \epsilon_0 : \forall \delta > 0 \exists x_\delta : |x_\delta - a| < \delta \land |f(x_\delta)-A| \geq \epsilon_0$  
+Пусть $\lbrace \delta_n \rbrace = \lbrace {1 \over n} \rbrace,$ тогда $\forall \delta_n=1/n \exists x_n : |x_n-a|<\delta_n=1/n \land |f(x)-A| \geq \epsilon_0$  
+Рассмотрим $\lbrace x_n \rbrace : \lim\limits_{n \to \infty} x_n=a,$ тогда (предел по Гейне) $\implies \exists \lim\limits_{n \to \infty} f(x_n)=A$  
+$\forall n \implies |f(x_n)-A| \geq \epsilon_0 - противоречие \implies$ существует предел по Коши.
+
+#### Свойства
+1. Пусть $\exists \lim\limits_{x \to a} f(x)=A, A \in R$, тогда $\exists \dot U(a) :$ в $\dot U(a)$ функция $f(x)$ ограничена.  
+Доказательство. Для $\epsilon = 1 \implies \exists \delta_0 : \forall x \in \dot u_\delta(a) \implies f(x) \in U_1(A) \iff |f(x)-A| < 1 \iff A-1 < f(x) < A+1$
+2. Пусть $\exists \lim\limits_{x \to a} f(x)=A, A \in \R, A \neq 0$. Тогда $\exists \dot u(a) : \forall x \in \dot u(a) \implies |f(x)| > {|A| \over 2}$  
+Доказательство. Пусть $\epsilon = {|A| \over 2},$ тогда $\exists \delta>0 : \forall x \in \dot u_\epsilon(a) \implies |f(x)-A| < {|A| \over 2} \iff A - {|A| \over 2} < f(x) < A + {|A| \over 2}$  
+$$\begin{cases}
+A>0 \iff A/2 < f(x) < 3A/2 \\
+A<0 \iff 3A/2 < f(x) < A_2
+\end{cases}$$
+$\implies |f(x)| > |A|/2$
+3. Пусть $\exists \lim\limits_{x \to a} f(x)=A, \lim\limits_{x \to a} g(x)=B,$ причём $f(x) \leq g(x)$ в $\dot U(a),$ тогда $A \leq B$.  
+Доказательство. Пусть $\lbrace x_n \rbrace : \exists \lim\limits_{n \to \infty} x_n=a,$ тогда $\exists \lim\limits_{n \to \infty} f(x_n)=A, \lim\limits_{n \to \infty} g(x_n)=B$ и $\forall n \implies f(x_n) \leq g(x_n)$
+4. Пусть $f(x) \leq h(x) \leq g(x)$ в $\dot u(a),$ причём $\exists \lim\limits_{x \to a} f(x)=\lim\limits_{x \to a} g(x)$. Тогда $\exists\lim\limits_{x \to \a} h(x) = \lim\limits_{x \to a} f(x)$  
+Доказательство. Пусть $x_n \to a$ при $n \to \infty$; тогда $\forall n \implies f(x_n) \leq h(x_n) \leq g(x_n),$ причём $\exists \lim\limits_{n \to \infty} f(x_n)=\lim\limits_{n \to \infty}g(x_n) \implies$ TODO
+
+#### Примеры
+* Первый замечательный предел. $\lim\limits_{x \to 0} {\sin x \over x} = 1$  
+(рис. 1) ${AC \over OA} = \sin x = AC; \tg x = {BD \over OB} = BD; BD > AC; S_{\triangle OAB} < S_{OAB} < S_{\triangle ODB} \iff {1*AC \over 2} < {x*1 \over 2} < {BD \over 2} \iff \sin x < x < \tg x \implies 1 < x / \sin x < 1 / \cos x \implies \exists\lim\limits_{x \to 0} {x \over \sin x} = 1$
+* Второй замечательный предел. $\lim\limits_{x \to 0}(1+x)^{1/x}=e=\lim\limits_{y \to 0}(1+1/y)^y; \exists \lim\limits_{n \to \infty} (1 + 1/n)^n = e, n \in N$  
+Доказательство. $(1+{1 \over [y] + 1})^[y] \leq (1 + 1/y)^y \leq (1 + 1/[y])^{[y]+1}$... TODO
