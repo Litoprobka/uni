@@ -2,7 +2,7 @@
 id: 600fgnayut4rm69k2wpemzd
 title: Функция (отображение)
 desc: ''
-updated: 1663618828478
+updated: 1664190618980
 created: 1663227151799
 ---
 
@@ -60,6 +60,29 @@ $\lbrace f : X \to Y \rbrace$ oбозначается $Y^X$
     k = m \implies |B|=A_k^k = P_k = k!
     \end{cases}$$
 
+### Каноническая биекция между $\space 2^X$ и $\space\lbrace 0, 1 \rbrace^X$
+$f: X \to \lbrace 0, 1 \rbrace$ - характеристическая (индикаторная) функция  
+Пусть $A \subset X$, тогда индикаторная функция $\xi_A : X \to \lbrace 0, 1 \rbrace$; $$\xi_a = \begin{cases} 
+x \in A \to 1 \\
+x \notin A \to 0
+\end{cases}$$ *греческая буква, похожая на X*  
+
+$\xi_\emptyset(x)=0$  
+$\xi_X(x)=1$
+
+$f : X \to \lbrace 0, 1 \rbrace$ сопоствавимо с $\lbrace x \in X : f(x) = 1 \rbrace$, которое называется носителем $f$.
+
+* $F : A \in 2^X ~~> \xi_A$  
+* $G : f ~~> N_f \in 2^X$
+* $G \circ F = Id_{2^X}$
+* $F \circ G = Id_{\lbrace 0, 1 \rbrace}$
+
+$\xi_{[0, +\infty)}$ - функция Хевисайда
+
+* если $X$ - конечное множество, $|Y|=2$, то между $Y^X$ и $2^X$ существует взаимооднозначное отображение
+    * на самом деле, для бесконечных $X$ это тоже верно
+
+
 ## Композиция функций
 Пусть $f : X \to Y, g : Y \to Z$  
 $x \leadsto g(f(x)) -$ композиция $f$ и $g$  
@@ -70,27 +93,33 @@ $g \circ f : X \to Z$
 * ассоциативность: $(h \circ g) \circ f = h \circ (g \circ f)$
     * $((h \circ g) \circ f)(x) = (h \circ g)(f(x)) = h(g(f(x)))$
     * $(h \circ (g \circ f))(x) = h((g \circ f)(x)) = h(g(f(x)))$
-#### Tождественная функция (identity)
+### Tождественная функция (identity)
 $Id_Y \circ f = f, f \circ Id_X = f$  
 $Id_X : X \to X, Id(x) = x$
 
 Если $f : X \to X,$ то $Id_X \circ f = f \circ Id_X = f$
 
-#### Обратная функция
+### Обратная функция
 Можно ли найти такую $g : Y \to X$, что:
-* $g \circ f = Id_X -$ левая обратная функция для $f$
+* $g \circ f = Id_X -$ левая обратная функция для $f$ $(\forall y \in Y f(g(y))=y)$
 * $f \circ h = Id_Y -$ правая обратная функция для $f$
 
 > Теорема. $f : X \to Y$
-1. у $f$ есть правая обратная функция $\iff f$ сюръективна
-2. y $f$ есть левая обратная функция $\iff f$ инъективна  
-*TODO*
+1. у $f$ есть правая обратная функция $\iff f$ сюръективна  
+    Доказательство.
+    * Пусть $f$ не сюръективна $\implies \exists y_0 \in Y : \forall x \in X f(x) \neq y_0 \implies f(g(y_0) = y_0 -$ противоречие
+    * $f$ сюръективна $\implies \forall y \in Y f^{-1}(y) \neq \emptyset;$ выберем любой $x \in f^{-1}(y)$ и назовём его $g(y)$ - *нужна аксиома выбора, в ZF-аксиоматике её нет*
+> 
+> 2. y $f$ есть левая обратная функция $\iff f$ инъективна  
+    Доказательство.
+    * Пусть $f$ не инъективна $\implies \exists x_1, x_2 \in X : x_1 \neq x_2, f(x_1) = f(x_2);$ Пусть $f(x_1)f(x_2)=y_0 \implies g(f(x_1)) = x_1 \implies g(y_0) = x_1, g(f(x_2)) = x_2 \implies g(y_0) = x_2; x_1 \neq x_2 \implies$ противоречие
+    * $\forall y in Y$ если $y \in f(X)$, то $\exists! x : f(x) = y$ - назовём его $g(y)$; если $y \notin f(X),$ то обозначим за $g(y)$ любой элемент $X$. 
 
-> Следствие. $f$ биективна $\implies$ у $f$ есть "настоящая" обратная функция, т. е. $g : Y \to X$, такое, что:
-* $f \circ g = Id_Y$
-* $g \circ f = Id_X$
->
-> Тогда $g$ обозначается $f^{-1}$
+> Следствие / главная теорема. $f$ биективна $\iff$ у $f$ есть "настоящая" обратная функция $f^{-1} : Y \to X$:
+* $f \circ f^{-1} = Id_Y$
+* $f^{-1} \circ f = Id_X$
+
+> Fun fact: функция называется инволютивной, если $f$ = $f^{-1}$
 
 ### Примеры
 * вектор $\overline a$ задаёт движение плоскости $T_{\overline a} : П \to П$  
@@ -98,3 +127,28 @@ $Id_X : X \to X, Id(x) = x$
 
 ---
 > Множество биекций $f : X \to X$ обозначается $S(X)$ и называется множеством перестановок
+
+## Образ и прообраз множества
+Пусть $f : X \to Y, A \subset X, B \subset Y$  
+> $f(A) -$ образ множества $A, f(A)=\lbrace f(x) : x \in A \rbrace$  
+Прообраз множества $B$ - $f^{-1}(B) = \lbrace x : f(x) \in B \rbrace$
+
+### Пример
+$f : \R \to \R, f(x)=x^2$
+* $f([0, 2])=[0,4]; f([-1, 2])=[0, 4]$  
+* $f^{-1}([0,9])=[-3,3]$
+
+### Свойства
+* $|A|=n \implies |f(A)|\leq n$
+* $A \subset f^{-1}(f(A))$
+* $\implies f(f^{-1}(B)) \subset B$
+* $x \in f^{-1}(\lbrace f(x) \rbrace)$  
+    Доказательство: возьмём $y \in f(f^{-1}(B)) \implies \exists x \in f^{-1}(B) : y = f(x); f(x) \in B \implies y \in B$
+
+---
+Пусть $Y_n = \lbrace 1, 2, 3...n \rbrace, X -$ любое  
+$X^{Y_n}=\lbrace f : \lbrace 1..n \rbrace \to X \rbrace$  
+$X \times X \times X \times ... \times X = \lbrace (x_1, x_2, x_3, ... x_n) : x_i \in X \rbrace$  
+* Для этих двух множеств существует биекция
+* $Z^{X \cup Y} \to? Z^X \times Z^Y$
+* $(Z^Y)^X \to? Z^{Y \times X}$

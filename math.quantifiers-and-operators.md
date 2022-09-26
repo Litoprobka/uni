@@ -2,7 +2,7 @@
 id: v9jzee0aoa3q8qocz16oe81
 title: Quantifiers and Operators
 desc: ''
-updated: 1663265535682
+updated: 1664187095161
 created: 1662751596584
 ---
 
@@ -14,7 +14,7 @@ created: 1662751596584
 5. $a \iff b$ - тогда и только тогда
 6. $a \in A$ - принадлежность
 7. $\N \subset \Z$ - подмножество
-8. $:$, $|$ - таких, что
+8. $:$ или $|$ - таких, что
 
 ## Кванторы
 1. $\forall$ - для любого
