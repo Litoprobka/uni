@@ -2,7 +2,7 @@
 id: 600fgnayut4rm69k2wpemzd
 title: Функция (отображение)
 desc: ''
-updated: 1664190618980
+updated: 1664307948371
 created: 1663227151799
 ---
 
@@ -122,8 +122,8 @@ $Id_X : X \to X, Id(x) = x$
 > Fun fact: функция называется инволютивной, если $f$ = $f^{-1}$
 
 ### Примеры
-* вектор $\overline a$ задаёт движение плоскости $T_{\overline a} : П \to П$  
-    $T_{\overline b} \circ T_{\overline a} = T_{\overline a + \overline b}$
+* вектор $\vec a$ задаёт движение плоскости $T_{\vec a} : П \to П$  
+    $T_{\vec b} \circ T_{\vec a} = T_{\vec a + \vec b}$
 
 ---
 > Множество биекций $f : X \to X$ обозначается $S(X)$ и называется множеством перестановок
