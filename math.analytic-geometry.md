@@ -2,7 +2,7 @@
 id: cn4rsjwsl3fpw50pqmjde6f
 title: Analytic Geometry
 desc: ''
-updated: 1664308186032
+updated: 1664801884677
 created: 1662709595196
 ---
 
@@ -57,3 +57,32 @@ ${x \over a} {y \over b} = 1$
 > $Ax + By + C = 0, \space Ax + By + C_1 = 0 -$ уравнения параллельных прямых
 
 Тогда $\rho(l_1, l_2)={C_1 - C_2 \over \sqrt {A^2 + B^2}}$
+
+## Векторное произведение векторов
+$\vec a, \vec b, \vec c \in \R^3\,\vec a \times \vec b = \vec c :$
+* $\vec c \perp \vec a \land \vec c \perp \vec b$
+* $|\vec c| = |\vec a|*|\vec b|*\sin \alpha$
+* $\vec a \vec b \vec c$ - правая тройка векторов
+
+### Свойства
+1. $\vec a \times \vec a = \vec 0$
+2. $\vec a \times \vec b = -\vec b \times \vec a$ - коммутативности нет
+3. $\lambda \vec a \times \vec b = \lambda (\vec a \times \vec b) = \vec a \times \lambda \vec b$
+4. $(!)$ $\vec c \times (\vec a + \vec b) = \vec c \times \vec a + \vec c \times \vec b$
+
+#### Доказательство свойства 4
+Лемма 1. $\vec c \times (\vec a +\lambda\vec c) = \vec c \times \vec a + \vec c \times \lambda\vec c = \vec c \times \vec a$ - (рис. 5)
+
+Лемма 2. $\vec a \not{||} \vec c \implies \exists!\lambda : \vec c \perp \vec a + \lambda \vec c$$  
+Доказательство.  
+$\vec c (\vec a + \lambda \vec c) = 0 \iff \vec a \times$ *TODO*
+
+Лемма 3. $\vec c \perp \vec a, \vec c \perp \vec a \implies \vec c \times (\vec a + \vec b) = \vec c \times \vec a + \vec c \times \vec b$  
+(6)
+* $|\vec c \times \vec a| = |\vec c| * |\vec a| * sin 90\degree = |\vec c| * |vec a|$
+* то же самое верно для $\vec b$
+* (6) $\implies \vec c \times \vec a + \vec c \times \vec b = \vec c \times (\vec a + \vec b)$
+
+Доказательство.  
+$\vec c \times (\vec a + \vec b) = \vec c \times (\vec a_1 + \lambda \vec c + \vec b_1 + \mu \vec c) = \vec c \times \vec a_1 + \vec c \times \vec b_1 = \vec c \times (\vec a + \lambda \vec c) + \vec c \times (\vec a + \lambda \vec c) + \vec c \times (\vec b + \mu \vec c) = \vec c \times \vec a + \vec c \times \vec b$
+
