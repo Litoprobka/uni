@@ -1,20 +1,22 @@
 ---
 id: MR4ykZPqoXGw6b1jif9LG
 title: Group Theory
-desc: ''
-updated: 1663265535672
+desc: ""
+updated: 1664962705652
 created: 1637403102607
 ---
 
-
 ## Группа
+
 > Группа - это множество, для которого определена бинарная операция $"\cdot"$ и выполняются следующие законы:
-1. Closure (закрытость?): $\forall x,y\in S,\space x\cdot y \in S$
-2. Ассоциативность: $\forall x,y,z \in S,\space x\cdot y\cdot(y\cdot z)=(x\cdot y)\cdot z$
-3. Identity (нейтральный элемент): $\exists e \in S, \forall x \in S,\space x\cdot e=e\cdot x=x$
-4. Инверсия: $\forall x \in S, \exists x^{-1},\space x\cdot x^{-1}=x^{-1}\cdot x = e$
+
+1. Closure (закрытость?): $\forall x,y\in S,  x\cdot y \in S$
+2. Ассоциативность: $\forall x,y,z \in S,  x\cdot y\cdot(y\cdot z)=(x\cdot y)\cdot z$
+3. Identity (нейтральный элемент): $\exists e \in S, \forall x \in S,\ x\cdot e=e\cdot x=x$
+4. Инверсия: $\forall x \in S, \exists x^{-1},\ x\cdot x^{-1}=x^{-1}\cdot x = e$
 
 ### Пример
+
 Из https://www.youtube.com/watch?v=zkADn-9wEgc
 
 S = { $R,Q,Y,X_1, X_2,I$ } - множество операций с треугольником. $R$ и $Q$ - поворот по часовой на 120 и 240 градусов; Y, $X_1$ и $X_2$ - отражение, I - identity.
@@ -23,13 +25,13 @@ S = { $R,Q,Y,X_1, X_2,I$ } - множество операций с треуго
 
 Проверим, является ли S группой (для которой $\bullet$ - последовательное выполнение действий):
 
-I  | R | Q | Y | X1 | X2
--- | - | - | - | -- | --
-R  | X | I | X1| X2 | Y
-Q  | I | R | X2| Y  | X1
-Y  | X2|X1 | I | Q  | R
-X1 | Y |X2 | R | I  | Q
-X2 |X1 | Y | Q | R  | I
+| I   | R   | Q   | Y   | X1  | X2  |
+| --- | --- | --- | --- | --- | --- |
+| R   | X   | I   | X1  | X2  | Y   |
+| Q   | I   | R   | X2  | Y   | X1  |
+| Y   | X2  | X1  | I   | Q   | R   |
+| X1  | Y   | X2  | R   | I   | Q   |
+| X2  | X1  | Y   | Q   | R   | I   |
 
 - Закрытость: выполняется
 - Ассоциативность: выполняется
@@ -39,20 +41,25 @@ X2 |X1 | Y | Q | R  | I
 Итого: S является группой и называется группой симметрии треугольника
 
 ## Числа
-* Целые числа и операция сложения; identity = 0
-* Рациональные числа и операция сложения или умножения; identity = 1
+
+- Целые числа и операция сложения; identity = 0
+- Рациональные числа и операция сложения или умножения; identity = 1
 
 ### Изоморфизм
+
 Даны группы $S$, $T$ и функция $f: S\to T$.
-Если $\forall x \in S,\exists y in T,\space f(x)=y$ и $\forall x,y \in S,\space x\not=y \iff f(x)\not=f(y)$, то такая функция называется изоморфизмом. Для изоморфизмов выполняется тождество $f(a\cdot b)=f(a)\cdot f(b)$ 
+Если $\forall x \in S,\exists y in T,\ f(x)=y$ и $\forall x,y \in S,\ x\not=y \iff f(x)\not=f(y)$, то такая функция называется изоморфизмом. Для изоморфизмов выполняется тождество $f(a\cdot b)=f(a)\cdot f(b)$
 
 ## Полугруппа
+
 > Полугруппа отличается от группы тем, что выполняться должна только закрытость (1) и ассоциативность (2)
 
 ## Моноид
+
 > Моноид - это полугруппа, в которой есть нейтральный элемент (3)
 
 ### Примеры
-* строки / списки и конкатенация
-* [[множества|math.set]], $\cap$ и $\Omega$ или $\cup$ и $\empty$
-* всевозможные `instance Monoid ...` в Haskell
+
+- строки / списки и конкатенация
+- [[множества|math.set]], $\cap$ и $\Omega$ или $\cup$ и $\empty$
+- всевозможные `instance Monoid ...` в Haskell

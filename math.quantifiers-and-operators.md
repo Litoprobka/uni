@@ -1,12 +1,13 @@
 ---
 id: v9jzee0aoa3q8qocz16oe81
 title: Quantifiers and Operators
-desc: ''
-updated: 1664187095161
+desc: ""
+updated: 1664962751281
 created: 1662751596584
 ---
 
 ## Логические операции
+
 1. $\overline a$ - отрицание
 2. $a \land b$ - и
 3. $a \lor b$ - или
@@ -17,6 +18,7 @@ created: 1662751596584
 8. $:$ или $|$ - таких, что
 
 ## Кванторы
+
 1. $\forall$ - для любого
 2. $\exists$ - существует
 3. $\exists!$ - существует единственный

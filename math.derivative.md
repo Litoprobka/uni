@@ -1,17 +1,21 @@
 ---
 id: 5xir3tn36aq6gg5qnrpucjc
 title: Derivative
-desc: ''
-updated: 1663266484452
+desc: ""
+updated: 1664962696204
 created: 1653397030371
 ---
+
 Производная $f'(x)$ обозначает скорость изменения функции $f$ в точке $x$.
 
-$$\begin{equation}
+$$
+\begin{equation}
     f'(x) = {\lim\limits_{\Delta x \to 0}} {f(x + \Delta x) - f(x) \over \Delta x}
-    \end{equation}$$
+    \end{equation}
+$$
 
 ## Производные некоторых функций
+
 $$
 C' = 0 \\
 x' = 1 \\
@@ -23,6 +27,7 @@ ln' x = {1 \over x} \\
 $$
 
 ## Свойства
+
 $$
 (f + g)' = f' + g' \\
 (fg)' = f'g + fg' \\
