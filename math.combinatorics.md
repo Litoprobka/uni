@@ -2,7 +2,7 @@
 id: 2ongTkzfqwgbK6ktnDJMN
 title: Комбинаторика
 desc: ""
-updated: 1664962653674
+updated: 1665143943692
 created: 1632230572756
 ---
 
@@ -15,7 +15,7 @@ created: 1632230572756
 
 _Дальше идёт запись первой лекции по комбинаторике в довольно хаотичной форме_
 
-$Z_n = \lbrace 1, 2, 3, ... n \lbrace,$ подмножества $2^{Z_n}=\Omega_n$
+$Z_n = \lbrace 1, 2, 3, ... n \rbrace,$ подмножества $2^{Z_n}=\Omega_n$
 
 $\Omega_n^k = \lbrace A \subset Z_n : |A| = k \rbrace, |\Omega_n^k|=C_n^k$
 
@@ -75,7 +75,7 @@ P - \text{простое}, k \neq 0, P \implies C_p^k\,\vdots\,P
 $$
 
 Правила сокращённого умножения используют треугольник Паскаля (и сочетания)  
-$(a+b)^n = C_n^0a^n + C_n^1a^{n-1}b + C_n^2a^{n-2}b^2 + \dots + C_n^0b^n$ -   
+$(a+b)^n = C_n^0a^n + C_n^1a^{n-1}b + C_n^2a^{n-2}b^2 + \dots + C_n^0b^n$ -
 $(a+b)^n = \displaystyle\sum_{k=0}^n C_n^k a^{n-k}b^k$
 
 ### Доказательство бинома Ньютона

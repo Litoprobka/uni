@@ -2,7 +2,7 @@
 id: cn4rsjwsl3fpw50pqmjde6f
 title: Analytic Geometry
 desc: ""
-updated: 1664962449985
+updated: 1665143958737
 created: 1662709595196
 ---
 
@@ -92,9 +92,77 @@ $\vec c (\vec a + \lambda \vec c) = 0 \iff \vec a \times$ _TODO_
 Лемма 3. $\vec c \perp \vec a, \vec c \perp \vec a \implies \vec c \times (\vec a + \vec b) = \vec c \times \vec a + \vec c \times \vec b$  
 (6)
 
-- $|\vec c \times \vec a| = |\vec c| * |\vec a| * sin 90\degree = |\vec c| * |vec a|$
+- $|\vec c \times \vec a| = |\vec c| *|\vec a|* sin 90\degree = |\vec c| * |vec a|$
 - то же самое верно для $\vec b$
 - (6) $\implies \vec c \times \vec a + \vec c \times \vec b = \vec c \times (\vec a + \vec b)$
 
 Доказательство.  
 $\vec c \times (\vec a + \vec b) = \vec c \times (\vec a_1 + \lambda \vec c + \vec b_1 + \mu \vec c) = \vec c \times \vec a_1 + \vec c \times \vec b_1 = \vec c \times (\vec a + \lambda \vec c) + \vec c \times (\vec a + \lambda \vec c) + \vec c \times (\vec b + \mu \vec c) = \vec c \times \vec a + \vec c \times \vec b$
+
+## Смешанное произведение векторов
+
+$\vec a \vec b \vec c = \vec a \times \vec b \vec c$
+
+$$
+\vec a = (a_x, a_y, a_z) \\
+\vec b = (b_x, b_y, b_z) \\
+\vec c = (c_x, c_y, c_z) \\
+$$
+
+$$
+\vec a \vec b \vec c = \begin{vmatrix}
+a_x & a_y & a_z \\
+b_x & b_y & b_z \\
+c_x & c_y & c_z
+\end{vmatrix}$$
+
+### Геометрический смысл
+
+(рис. 1)  
+$\vec a \vec b \vec c = S_\text{параллелограмм} |\vec a| \cos \alpha =$ объём параллелепипеда, натянутого на $\vec a, \vec b, \vec c$ с точностью до знака._Тот же, что и геометрический смысл определителя матрицы_
+
+### Свойства
+
+- _TODO, переписать из тетради_
+
+## Уравнение плоскости
+
+$A(x_1, y_1, z_1), B(x_2, y_2, z_2), C(x_3, y_3, z_y), X(x, y, z); A, B, C \in \pi$  
+$$X \in \pi \iff \overrightarrow{AX}\overrightarrow{AB}\overrightarrow{AC}=0 \iff
+\begin{vmatrix}
+x-x_1 & y-y_1 & z-z_1 \\
+x-x_2 & y-y_2 & z-z_2 \\
+x-x_3 & y-y_3 & z-z_3
+\end{vmatrix} = 0$$
+
+(рис. 2)  
+$\vec n = (\alpha, \beta, \gamma); X(x, y, z)$  
+$\alpha x + \beta y + \gamma z - p = 0$ - нормальное уравнение плоскости
+
+(рис. 3)  
+$M(x, y, z)$  
+$\overrightarrow{OM} = (x, y, z)$  
+$\overrightarrow{OM} \vec n = \alpha x + \beta y + \gamma z = |\overrightarrow{OM}||\vec n| \cos \gamma = |\overrightarrow{OM}| \cos \gamma = \overrightarrow{ON} = p + \rho(M, \pi)$  
+$\implies \rho(M, \pi) = |\alpha x + \beta y + \gamma z - p|$
+
+Расстояние от точки $M(x, y, z)$ до плоскости $\pi$ получается подстановкой $x, y, z$ в нормальное уравнение плоскости
+
+### Расстояние между плоскостями
+
+_ноут садится_
+
+## Прямая в пространстве
+
+$$\begin{cases}
+A_1x + B_1y + C_1z + D_1 = 0 \\
+A_2x + B_2y + C_2z + D_2 = 0
+\end{cases},\vec n_1 \times \vec n_2 \neq 0$$
+
+(рис. 4)  
+$$N \in l \iff \overrightarrow{MN} || \vec p \iff \exists t : t\overrightarrow{MN} = \vec p \iff \begin{cases}
+x = x_0 + t\alpha \\
+y = y_0 + t\beta \\
+z = z_0 + t\gamma
+\end{cases}, t \in \R$$ - параметрическое уравнение прямой
+
+При $t={x-x_0 \over \alpha}={y-y_0 \over \beta}={z-z_0 \over \gamma}$ - каноническое уравнение прямой
