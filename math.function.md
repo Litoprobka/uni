@@ -1,8 +1,8 @@
 ---
 id: 600fgnayut4rm69k2wpemzd
 title: Функция (отображение)
-desc: ""
-updated: 1664962421100
+desc: ''
+updated: 1665428416992
 created: 1663227151799
 ---
 
@@ -76,7 +76,7 @@ $\lbrace f : X \to Y \rbrace$ oбозначается $Y^X$
   m < k \implies |S|=0 \\
   m \geq k \implies ? \text{ "формула сложная, напишем потом"}
   \end{cases}
-  $$
+  $$ *TODO: как запихнуть ссылку в формулу?*
 - $B \subset Y -$ все биективные функции
   $$
   \begin{cases}
@@ -85,10 +85,10 @@ $\lbrace f : X \to Y \rbrace$ oбозначается $Y^X$
   \end{cases}
   $$
 
-### Каноническая биекция между $\ 2^X$ и $ \lbrace 0, 1 \rbrace^X$
+### Каноническая биекция между $\ 2^X$ и $\ \lbrace 0, 1 \rbrace^X$
 
 $f: X \to \lbrace 0, 1 \rbrace$ - характеристическая (индикаторная) функция  
-Пусть $A \subset X$, тогда индикаторная функция $\chi_A : X \to \lbrace 0, 1 \rbrace$; $$\chi_a = \begin{cases} 
+Пусть $A \subset X$, тогда индикаторная функция $\chi_A : X \to \lbrace 0, 1 \rbrace$; $$\chi_a = \begin{cases}
 x \in A \to 1 \\
 x \notin A \to 0
 \end{cases}$$
@@ -107,6 +107,17 @@ $\chi_{[0, +\infty)}$ - функция Хевисайда
 
 - если $X$ - конечное множество, $|Y|=2$, то между $Y^X$ и $2^X$ существует взаимооднозначное отображение
   - на самом деле, для бесконечных $X$ это тоже верно
+
+## Характеристические функции + операции над множествами
+
+$A, B \in 2^\Omega$  
+Как выразить $\chi_{A \cap B}, \chi_{A \cup B}, \chi_{\overline A}$?
+$$
+\chi_{\overline A} = 1 - \chi_A \\
+\chi_{A \cap B} = \chi_A * \chi_B \\
+\chi_{A \cup B} = (\chi_A + \chi_B) \% 2 \\
+\chi_{A \cup B} = \chi_{\overline {\overline A \cap \overline B}} = 1 - \chi_{\overline A \cap \overline B} = 1 - \chi_{\overline A} \chi_{\overline B} = \chi_A + \chi_B - \chi_{A \cap B}
+$$
 
 #### Доказательство для счётных множеств
 
@@ -160,13 +171,14 @@ $Id_X : X \to X, Id(x) = x$
 
 > Теорема. $f : X \to Y$
 
-1.  у $f$ есть правая обратная функция $\iff f$ сюръективна  
+1. у $f$ есть правая обратная функция $\iff f$ сюръективна  
      Доказательство.
-    _ Пусть $f$ не сюръективна $\implies \exists y_0 \in Y : \forall x \in X f(x) \neq y_0 \implies f(g(y_0) = y_0 -$ противоречие
+    _Пусть $f$ не сюръективна $\implies \exists y_0 \in Y : \forall x \in X f(x) \neq y_0 \implies f(g(y_0) = y_0 -$ противоречие
     _ $f$ сюръективна $\implies \forall y \in Y f^{-1}(y) \neq \emptyset;$ выберем любой $x \in f^{-1}(y)$ и назовём его $g(y)$ - _нужна аксиома выбора, в ZF-аксиоматике её нет_
+    >
     > 2. y $f$ есть левая обратная функция $\iff f$ инъективна
         Доказательство.
-        * Пусть $f$ не инъективна $\implies \exists x_1, x_2 \in X : x_1 \neq x_2, f(x_1) = f(x_2);$ Пусть $f(x_1)f(x_2)=y_0 \implies g(f(x_1)) = x_1 \implies g(y_0) = x_1, g(f(x_2)) = x_2 \implies g(y_0) = x_2; x_1 \neq x_2 \implies$ противоречие
+        *Пусть $f$ не инъективна $\implies \exists x_1, x_2 \in X : x_1 \neq x_2, f(x_1) = f(x_2);$ Пусть $f(x_1)f(x_2)=y_0 \implies g(f(x_1)) = x_1 \implies g(y_0) = x_1, g(f(x_2)) = x_2 \implies g(y_0) = x_2; x_1 \neq x_2 \implies$ противоречие
         * $\forall y in Y$ если $y \in f(X)$, то $\exists! x : f(x) = y$ - назовём его $g(y)$; если $y \notin f(X),$ то обозначим за $g(y)$ любой элемент $X$.
 
 > Следствие / главная теорема. $f$ биективна $\iff$ у $f$ есть "настоящая" обратная функция $f^{-1} : Y \to X$:
@@ -216,3 +228,22 @@ $X \times X \times X \times ... \times X = \lbrace (x_1, x_2, x_3, ... x_n) : x_
 - Для этих двух множеств существует биекция
 - $Z^{X \cup Y} \to? Z^X \times Z^Y$
 - $(Z^Y)^X \to? Z^{Y \times X}$
+
+---
+
+### Множество сюръекций $\ X \to Y$
+
+_должно ли это быть в [[math.combinatorics]]?_
+
+$$
+|X|=n, |Y|=m, m \leq n \\
+S \subset Y^X - \text{множество всех сюръективных функций} \\
+|S| = ? \\
+A_i = \lbrace f : X \to Y : f(X) \not\ni y \rbrace \\
+S = Y^X \setminus \displaystyle\bigcap_{i=1}^m A_i \\
+|A_i| = (m - 1)^n \quad f \in A_i, f : X \to Y \setminus \lbrace y_i \rbrace \\
+|A_i \cap A_j| = (m - 2)^n \\
+|\sum \chi_{A_i} - \sum \chi_{A_i \cap A_j} + \dots + (-1)^{k-1}\sum X_{\bigcap A_{i_k}}| = (m - k)^n \\
+\implies |\bigcup A_m| = C_m^1(m - 1)^n - C_m^2(m - 2)^n + C_m^3(m - 3)^n + \dots + (-1)^{k+1}C_m^k(m - k)^n + \dots + (-1)^m m \\
+\implies |S| = m^n - C_m^1(m - 1)^n + C_m^2(m - 2)^n + C_m^3(m - 3)^n + \dots + (-1)^{k}C_m^k(m - k)^n + \dots + (-1)^{m-1} m
+$$

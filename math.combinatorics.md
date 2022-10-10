@@ -1,15 +1,15 @@
 ---
 id: 2ongTkzfqwgbK6ktnDJMN
 title: Комбинаторика
-desc: ""
-updated: 1665143943692
+desc: ''
+updated: 1665428408919
 created: 1632230572756
 ---
 
 - перестановки - "$n$ разных шариков в $n$ лунок", $P_n=n!$
   - частный случай размещений, $0! = 1$
 - размещения - "$k$ разных шариков в $n$ лунок (или наоборот)", $k \le n;\ A_n^k={n! \over (n-k)!}$
-- сочетания - "$k$ одинаковых шариков в $n$ лунок", $C_n^k=(^n_k)={A_n^k \over P^k}={m! \over (n-k)!*k!}$
+- сочетания - "$k$ одинаковых шариков в $n$ лунок" или число $k$-элементных подмножеств $n$-элементного множества, $C_n^k=(^n_k)={A_n^k \over P^k}={m! \over (n-k)!*k!}$
 
 ---
 
@@ -110,3 +110,55 @@ $(x-p)(x-q)(x-r) = x^3 - (p + q + r)x^2 + (pq + qr + pr)x = pqr$
 $\iff$ "сколькими способами можно раздать $k$ яблок $n$ людям?"
 
 Разлозим яблоки в ряд, разложим между ними соломинки; человеку 1 достаются яблоки слева от первой соломинки, второму - между первой и второй и т.д. $\implies C_{n+k-1}^k = C_{n+k-1}^{n-1}$
+
+## Количество элементов в объединении множеств
+
+_кидать эту лекцию в [[math.set]] или нет?_
+$$
+|A \cup B| \neq |A| + |B| \\
+|A \cup B| = |A| + |B| - |A \cap B| \\
+|A + B + C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C| \\
+\text{Для большего числа множеств слишком длинно, нужна общая формула} \\
+| \bigcup A_n| = \sum |A_n| - \displaystyle\sum_{\lbrace i, j \rbrace}|A_i \text{Предположение: } \cap A_j| + \displaystyle\sum_{\lbrace i, j, l \rbrace}|A_i \cap A_j \cap A_l| +  \dots + (-1)^{k+1}\displaystyle\sum_{\lbrace i_1, \dots, i_k \rbrace}|\bigcap A_{i_k}|\\
+$$
+
+$$
+\chi_{A \cup B} = \chi_A + \chi_B - \chi_{A \cap B} \\
+|A \cup B| = |A| + |B| - |A \cap B| \\
+\text{Как перевести первое во второе?} \\
+S(\chi_A + \chi_B - \chi_{A \cap B}) = S(\chi_A) + S(\chi_B) + (-1)S(\chi_{A \cap B}) = |A| + |B| - |A \cap B|
+$$
+
+### "Дискретный интеграл"
+
+_TODO: линейность_
+$$
+\text{Пусть } A - \text{конечное множество} \\
+f : A \to \R \\
+S(f) = \displaystyle\sum_{x \in A} f(x)
+$$
+
+#### Свойства
+
+- $S(f + g) = S(f) + f(g)$
+
+- $\forall c \in \R\ S(c*f) = c*S(f)$
+- $S(\chi_A) = |A|$
+
+---
+$$
+\chi_{\bigcup A_n} = ? \\
+A_1 \cup A_2 = \overline{\overline A_1 \cap \overline A_2} \\
+A_1 \cup \dots \cup A_4 = \overline{\overline A_1 \cap \dots \cap \overline A_4} \\
+\bigcup A_n = \overline{\overline{\overline{(\overline A_1 \cap \overline A_2 \dots)}} \cap \overline A_n} = (\overline{\overline A_1 \cap \dots \cap \overline A_{n-1}}) \cup \overline A_n\\
+\chi_{\bigcup A_n} = 1 - \prod \chi_{\overline A_i} = 1 - \prod 1-\chi_{A_i} = \sum \chi_{A_i} - \sum \chi_{A_i \cap A_j} + \dots + (-1)^{k-1}\sum \chi_{\bigcap A_{i_k}} \\
+\iff |\bigcup A_i| = \sum |A_i| - \sum |A_i \cap A_j| + \dots + (-1)^{k-1}\sum |\bigcap A_{i_k}|
+$$
+
+^ Формула включения исключения
+_TODO: проверить_
+---
+
+> $A \sqcup B \implies A \cup B = \emptyset; A \sqcap B = A \cap B$
+
+---
