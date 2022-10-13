@@ -2,7 +2,7 @@
 id: 2ongTkzfqwgbK6ktnDJMN
 title: Комбинаторика
 desc: ''
-updated: 1665428408919
+updated: 1665679260128
 created: 1632230572756
 ---
 
@@ -82,6 +82,27 @@ $(a+b)^n = \displaystyle\sum_{k=0}^n C_n^k a^{n-k}b^k$
 
 $(x + a_1)(x + a_2)\dots(x+a_n)=x^n + (n$ слагаемых с $x^1 + C_n^2 a_i x^{n-2} = (\sum a_ia_j)x^{n-2} \text{где} \lbrace i, j \rbrace \in \Omega_n^2) + (\sum a_{i_1}a_{i_2}\dots a_{i_k} : \lbrace a_i \rbrace \in \Omega_n^k)x^{n-k} + \dots + (\prod a_i)x^0$  
 _множество под суммой_
+
+#### Доказательство индукцией
+
+_вывел его на семинаре, awww_
+$$
+\text{База: } \\
+(a+b)^0 = 1 \\
+\displaystyle\sum_{k=0}^0a^0b^0 = 1
+$$
+
+$$
+\text{Шаг: } \\
+(a+b)^{n+1} = (\displaystyle\sum_{k=0}^n C_n^ka^{n-k}b^k)(a + b) = \displaystyle\sum_{k=0}^n C_n^ka^{n-k}b^k(a + b) = (\displaystyle\sum_{k=0}^n C_n^ka^{n-k+1}b^k) + (\displaystyle\sum_{k=0}^n C_n^ka^{n-k}b^{k+1}) \\
+\text{Заметим, что } C_n^ka^{n-k+1}b^k \text{ ($k$-ый элемент первой суммы)} + C_n^{k-1}a^{n-k+1}b^k \text{ ($(k-1)$-ый элемент второй суммы)} = C_{n+1}^ka^{n-k+1}b^k \\
+\text{Попарно сложим $k$-ые элементы первой суммы с $(k-1)$-ыми второй, останется два беспарных элемента: } \\
+(\displaystyle\sum_{k=1}^n C_{n+1}^ka^{n-k+1}b^k) + C_n^0a^{n+1} + C_n^nb^{n+1} \\
+\text{Заметим, что } C_n^0 = 1 = C_{n+1}^0,\,C_n^n = 1 = C_{n+1}^{n+1} \\
+\text{Получаем: } (\displaystyle\sum_{k=1}^n C_{n+1}^ka^{n-k+1}b^k) + C_{n+1}^0a^{n+1} + C_{n+1}^{n+1}b^{n+1} \\
+= (\displaystyle\sum_{k=0}^n C_{n+1}^ka^{n-k+1}b^k) + C_{n+1}^{n+1}b^{n+1} \\
+= \displaystyle\sum_{k=0}^{n+1} C_{n+1}^ka^{n+1-k}b^k\ \blacksquare
+$$
 
 #### Основные симметрические функции
 
