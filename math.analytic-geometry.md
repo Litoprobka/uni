@@ -2,7 +2,7 @@
 id: cn4rsjwsl3fpw50pqmjde6f
 title: Analytic Geometry
 desc: ""
-updated: 1665143958737
+updated: 1665737822010
 created: 1662709595196
 ---
 
@@ -163,6 +163,73 @@ $$N \in l \iff \overrightarrow{MN} || \vec p \iff \exists t : t\overrightarrow{M
 x = x_0 + t\alpha \\
 y = y_0 + t\beta \\
 z = z_0 + t\gamma
-\end{cases}, t \in \R$$ - параметрическое уравнение прямой
+\end{cases}, t \in \R - \text{параметрическое уравнение прямой}$$
 
 При $t={x-x_0 \over \alpha}={y-y_0 \over \beta}={z-z_0 \over \gamma}$ - каноническое уравнение прямой
+
+## Пересечение прямой и плоскости
+Пусть $l : {x+2 \over 3} = {y - 1 \over 2} = {z - 3 \over 1}, \pi : x + 5y - 2z -3 = 0$  
+$\vec p \not\perp\vec n \implies l \cap \pi \neq \emptyset$
+
+$$
+(-2+3t)+5(1+2t)-2(3-t)-3= 0 \iff 15t-6 = 0 \iff t = 0,4 \\
+\implies
+\begin{matrix}
+x =& -2+3*0,4 &= -0,8 \\
+y =& 1 + 2*0,4 &= 1,8 \\
+z =& 3 - 0,4 &= 2,6
+\end{matrix}
+$$
+
+## Взаимное расположение прямых
+* прямые совпадают
+* прямые параллельны
+* прямые пересекаются
+* прямые скрещиваются $\iff \overrightarrow{M_1M_2}\vec p_1 \vec p_2 \neq 0$  
+  $\exists! l_3 : l_3 \perp l_1, l_3 \perp l_2$
+### Расстояние между параллельными прямыми
+$$l_1 : \begin{cases}
+x = 2 + t \\
+y = -3-2t \\
+z = 3t
+\end{cases}\quad
+l_2 : \begin{cases}
+x = -2t \\
+y = 1 + 4t \\
+z = 5 - 6t 
+\end{cases}$$
+
+Пусть $M_0(2; -3; 0) \in l_1, M_0 \notin l_2; M_1(0; 1; 5) \in l_2$  
+(рис. 1)  
+$\rho(l_1, l_2) = h = {S_{пр} \over |\vec p_1|} = {|\vec p_1 \times \overrightarrow{M_1M_0}| \over |\vec p_1|}$
+
+### Точка пересечения
+$\vec n = \vec p_1 \times \vec p_2 \implies \pi \supset l_2, \pi || l_1$  
+
+*задача: найти точку пересечения двух прямых в пространстве*
+
+### Расстояние между скрещивающимися прямыми
+
+(рис. 2) 
+$$
+\exists \pi_1 \supset l_1, \pi_2 \supset l_2 : \pi_1 \perp l_2, \pi_2 \perp l_2 \\
+\rho(l_1, l_2) = \rho(\pi_1, \pi_2) = h_{пар.}={V_{p_1, p_2, \overrightarrow{M_1M_2}} \over S_{p_1 \times p_2}}
+$$
+
+## Поверхности второго порядка
+
+Поверхность второго порядка в $\R^3$ - множество точек в $R^3$, координаты которых удовлетворяют уравнению: 
+$$
+ax^2 + bxy + cy^2 + dz^2 + exz + fyz + kx + ly + mz + n = 0
+$$
+
+Любое сечение поверхности второго порядка плоскостью - кривая второго порядка (на примере эллипсоида):
+$$
+Ax + By + Cz + D = 0 \\
+{x^2 \over a^2} + {y^2 \over b^2} + {({D-Ax-By \over C})^2 \over c^2} = 1
+$$
+
+### Канонические поверхности
+
+* ${x^2 \over a^2} + {y^2 \over b^2} + {z^2 \over c^2} = 1$ - эллипсоид; его сечение координатными плоскостями - эллипсы. (рис. 3)
+* ${x^2 \over a^2} + {y^2 \over b^2} - {z^2 \over c^2} = 0$ - конус второго порядка (рис. 4)

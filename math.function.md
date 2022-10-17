@@ -2,7 +2,7 @@
 id: 600fgnayut4rm69k2wpemzd
 title: Функция (отображение)
 desc: ''
-updated: 1665428416992
+updated: 1666002558666
 created: 1663227151799
 ---
 
@@ -76,7 +76,8 @@ $\lbrace f : X \to Y \rbrace$ oбозначается $Y^X$
   m < k \implies |S|=0 \\
   m \geq k \implies ? \text{ "формула сложная, напишем потом"}
   \end{cases}
-  $$ *TODO: как запихнуть ссылку в формулу?*
+  $$
+  *TODO: как запихнуть ссылку в формулу?*
 - $B \subset Y -$ все биективные функции
   $$
   \begin{cases}
@@ -126,7 +127,7 @@ $$
 Докажем сюръективность $F$.  
 От противного: $F$ не сюръективна $\implies \exists \hat f = \lbrace (a, \chi_{\hat A}(a)) \in A \times \lbrace 0, 1 \rbrace \rbrace : (\nexists \hat A : F(\hat A) = \hat f)$  
 Из определения $supp(f) \implies \exists! \chi_{\tilde A} \forall \tilde A \in A;$  
-$|2^A| = | |$  
+$|2^A| = |\lbrace 0, 1 \rbrace^A|$ - *что здесь должно быть написано?*  
  $\forall \hat A \exists \hat f = F(\hat A)$
 
 Докажем инъективность $F$.  
@@ -193,6 +194,10 @@ $Id_X : X \to X, Id(x) = x$
 - вектор $\vec a$ задаёт движение плоскости $T_{\vec a} : П \to П$  
    $T_{\vec b} \circ T_{\vec a} = T_{\vec a + \vec b}$
 
+### Сюръективность и инъективность композиции функций
+* $f, g$ - инъективны $\implies f \circ g$ инъективна
+* $f, g$ - сюръективны $\implies f \crc g$ сюръективна
+
 ---
 
 > Множество биекций $f : X \to X$ обозначается $S(X)$ и называется множеством перестановок
@@ -247,3 +252,28 @@ S = Y^X \setminus \displaystyle\bigcap_{i=1}^m A_i \\
 \implies |\bigcup A_m| = C_m^1(m - 1)^n - C_m^2(m - 2)^n + C_m^3(m - 3)^n + \dots + (-1)^{k+1}C_m^k(m - k)^n + \dots + (-1)^m m \\
 \implies |S| = m^n - C_m^1(m - 1)^n + C_m^2(m - 2)^n + C_m^3(m - 3)^n + \dots + (-1)^{k}C_m^k(m - k)^n + \dots + (-1)^{m-1} m
 $$
+
+---
+Пусть $S(X) -$ множество биекций $X \to X$  
+Для $X = \lbrace 1, 2, 3, \dots, n \rbrace \quad S(X) = S_n(X) -$ симметрическая группа (группа перестановок)  
+$|S_n| = n!$
+
+## Задача о числе беспорядка
+*вынести в отдельную запись*
+
+Сколько есть $\phi \in S_n : \forall i\ \phi(i) \neq i$  
+Пусть $W = \lbrace \phi \in S_n : \forall i\ \phi(i) \neq i \rbrace\, |W|=\ ?$  
+Равносильный вопрос: $|S_n \setminus W| =\ ?$  
+$$
+A_i = \lbrace \phi \in S_n : \phi(i) = i \rbrace \\
+S_n \setminus W = \displaystyle\bigcup_{i=1}^n A_i  
+|A_i| = (n-1)! \\
+|A_i \cap A_j| = (n-2)! \\
+|\displaystyle\bigcap_{i=1}^k A_i| = (n-k)! \\
+|\displaystyle\bigcup_{i=1}^n A_i| = \sum |A_i| - \sum |A_i \cap A_j| + \dots + (-1)^{k+1}\sum |(\displaystyle\bigcup_{i=1}^k A_i)| = \\
+= \displaystyle\sum_{k=1}^n (-1)^{k+1}C_n^k (n - k)! \\
+= n!\displaystyle\sum_{k=1}^n {(-1)^{k+1} \over k!} \\
+\implies |W| = n!\displaystyle\sum_{k=1}^n {(-1)^k \over k!}
+$$
+
+Тогда вероятность того, что $\phi \in S_n$ также $\in W$ равна $\displaystyle\sum_{k=1}^n {(-1)^k \over k!} \approx e^{-1} \approx {1 \over e}$
