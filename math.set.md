@@ -2,7 +2,7 @@
 id: x3ke20lnysm62c3ytstrwxm
 title: Множества
 desc: ""
-updated: 1666004898424
+updated: 1666275561533
 created: 1662203709500
 ---
 
@@ -87,8 +87,10 @@ A \cap (B \setminus C) = (A \cap B) \setminus (A \cap C) - \text{дистриб�
 $
 
 ### Законы Де Моргана
-* $\overline{A \cup B} = \overline A \cap \overline B$
-* $\overline{A \cap B} = \overline A \cup \overline B$
+
+- $\overline{A \cup B} = \overline A \cap \overline B$
+
+- $\overline{A \cap B} = \overline A \cup \overline B$
 
 ## Разность и симметрическая сумма
 
@@ -192,29 +194,3 @@ B = \set{x, y, z} \\
 \#(2^B) = 8 \\
 \#(2^X) = 2^{\#X}
 $$
-
-## Отношение на множестве $X$
-Отношение на множестве - $R \subset X \times X$ 
-
-### Примеры
-* $X = \lbrace 1, 2, 3, 6 \rbrace$  
-  делимость - $R = \lbrace (x, y) : y|x\ \forall x, y \in X \rbrace$
-* $X = \R$, отношение - $x < y$ (график - верхний треугольник)
-* $S \subset R \times R, S = \lbrace (x, y) : |x - y| \leq 1 \rbrace$
-
-### Свойства отношений
-* запись - $(x, y) \in R \iff xRy$
-* симметричность - $xRy \iff yRx$
-* рефлексивность - $xRx\ \forall x$
-* транзитивность - $xRy \land yRz \implies xRz$
-* $R$ - отношение эквивалентности $\iff R$ симметрично, рефлексивно и транзитивно  
-  * пример - $X = X_1 \sqcup X_2 \sqcup \dots \sqcup X_m$  
-  $xRy \iff \exists i : x \in X_i \land y \in R_i$
-  * такие $R$ обычно обозначают $\sim$
-
-#### ???
-Теорема. Любое отношение эквивалентности получается из какого-то разбиения $X$ на подмножества  
-Доказательство. Дано $R \implies \forall a\ X_a = \lbrace b \in X : bRa \rbrace$; $X_a -$ класс эквивалентности элемента $a$  
-$\forall a, b \in X : X_a = X_b \lor X_a \sqcup X_b$  
-Пусть $\exists c \in X_a \cup X_b \implies cRa \land cRb \implies aRc \implies aRb$  
-$\forall z \in X_a \implies zRa \implies zRb \implies z \in X_b$
