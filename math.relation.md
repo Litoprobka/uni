@@ -2,7 +2,7 @@
 id: zt56k0ul6q1cvl1mmco368z
 title: Relation
 desc: ''
-updated: 1666275250284
+updated: 1666606561145
 created: 1666272319420
 ---
 
@@ -43,10 +43,6 @@ created: 1666272319420
   * ассиметричность - $\forall x, y \quad xRy \implies \lnot yRx$
 * рефлексивность - $\forall x\ xRx$ (подразумевает $A = B$)
 * транзитивность - $\forall x, y, z\quad xRy \land yRz \implies xRz$
-* $R$ - отношение эквивалентности $\iff R$ симметрично, рефлексивно и транзитивно  
-  * пример - $B = A = A_1 \sqcup A_2 \sqcup \dots \sqcup A_m$  
-  $xRy \iff \exists i : x \in A_i \land y \in A_i$
-  * такие $R$ обычно обозначают $\sim$
 
 ## Обратное отношение
 
@@ -64,10 +60,21 @@ $$
 
 Иными словами, $x(R \circ Q)y$ $\iff$ существует такой промежуточный элемент $z$, что $xRz$ и $zQy$
 
+## Отношение эквивалентности
+
+$R$ - отношение эквивалентности $\iff R$ симметрично, рефлексивно и транзитивно  
+* пример - $B = A = A_1 \sqcup A_2 \sqcup \dots \sqcup A_m$  
+  $xRy \iff \exists i : x \in A_i \land y \in A_i$
+* такие $R$ обычно обозначают $\sim$
 ### Теорема об отношениях эквивалентности
 
 Теорема. Любое отношение эквивалентности на $X$ получается из какого-то разбиения $X$ на подмножества  
-Доказательство. Дано $R \implies \forall a\ X_a = \lbrace b \in X : bRa \rbrace$; $X_a -$ класс эквивалентности элемента $a$  
-$\forall a, b \in X : X_a = X_b \lor X_a \sqcup X_b$  
+#### Доказательство
+Дано $R \quad \forall a \in X\ X_a = \lbrace b \in X : bRa \rbrace \ni a$; $X_a$ или $[a]$ - класс эквивалентности элемента $a$  
+##### Утверждение: $\forall a, b \in X : X_a = X_b \lor X_a \sqcup X_b$  
 Пусть $\exists c \in X_a \cup X_b \implies cRa \land cRb \implies aRc \implies aRb$  
-$\forall z \in X_a \implies zRa \implies zRb \implies z \in X_b$
+$\forall z \in X_a \iff zRa \iff zRb \iff z \in X_b \iff X_a = X_b \implies (\lnot (X_a \sqcup X_b) \iff X_a = X_b)$
+
+### Множество классов эквивалентности
+Множество классов эквивалентности ($\lbrace X_i \rbrace$) называется фактор-множеством $X$ по $R$ и обозначается $X/R$ - *TODO - косая черта*
+ 

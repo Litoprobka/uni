@@ -2,7 +2,7 @@
 id: 5xir3tn36aq6gg5qnrpucjc
 title: Derivative
 desc: ""
-updated: 1666360108344
+updated: 1668154696077
 created: 1653397030371
 ---
 
@@ -206,12 +206,93 @@ ${\Delta f(x_0, \Delta x)\over \Delta x} = {f(x_0 + \Delta x) - f(x) \over \Delt
 \end{cases}
 \implies \lim\limits_{\Delta x \to +0} {\Delta f(x_0, \Delta x)} \leq 0, \lim\limits_{\Delta x \to -0} {\Delta f(x_0, \Delta x)} \geq 0 \implies \lim\limits_{\Delta x \to 0} {\Delta f(x_0, \Delta x)} = 0$
 
-### Теорема Ролля
+## Теорема Ролля
 
 Пусть $f(x)$ непрерывна на $[a, b]$, дифференцируема на $(a, b)$ и $f(a) = f(b)$, тогда
 $\exists c \in (a, b) : f'(c) = 0$
 
-#### Доказательство
+### Доказательство
 
 * ${\min \atop [a, b]} = m = M = {\max \atop [a, b]} \implies f(x) = const \implies f'(c) = 0\ \forall c \in (a, b)$
 * $m \neq M \implies \exists c \in (a, b) : c - \text{локальный экстремум для } f(x) \implies f'(c) = 0 \text{ по теореме Ферма}$
+
+## Теорема Коши
+
+Пусть $f(x), g(x)$ непрерывны на $[a, b]$, дифференцируемы на $(a, b)$  и $g'(x) \neq 0$ на $(a, b)$. Тогда $\exists c \in (a, b): {f(b)-f(a) \over g(b)-g(a)}={f'(c) \over g'(c)}$
+
+### Доказательство
+
+Пусть $F(x) = f(x) - f(a) - {f(b) - f(a) \over g(b)-g(a)}(g(x) - g(a))$  
+$F(x)$ непрерывна на $[a, b]$ и дифференцируема на $(a, b)$  
+$F(a) = f(a) - f(a) - {f(b) - f(a) \over g(b)-g(a)}(g(a) - g(a)) = 0$  
+$F(b) = f(b) - f(a) - {f(b) - f(a) \over g(b)-g(a)}(g(b) - g(a)) = 0$
+
+По теореме Ролля $\exists c \in (a, b): F'(c) = O$  
+$F'(c) = f'(c)  - {f(b) - f(a) \over g(b)-g(a)}g'(c) = 0 \implies$
+
+### Теорема Лагранжа
+
+Пусть $f(x)$ непрерывна на $[a, b]$, диффренцируема на $(a, b)$, тогда $\exists c \in (a, b) : f'(c) = {f(b) - f(a) \over b-a}$
+
+#### Доказательство
+
+Пyсть $g(x) = x$, тогда применим теорему Коши:  
+${f'(c) \over g'(c)} = {f'(c) \over 1} = {f(b)-f(a) \over g(b)-g(a)} = {f(b)-f(a) \over b - a} \blacksquare$
+
+### Следствие 2
+
+Пусть $f'(x) > 0 (f'(x) \leq 0)$ на $(a, b)$ и $f(x)$ непрерывна на $[a, b]$. Тогда $f(x)$ строго возрастает (неубывает) на $(a, b)$
+
+(и то же самое для невозрастания и строгого убывания)
+
+#### Доказательство
+
+Пусть $x_1 < x_2,$ тогда по т. Лагранжа $\exists c \in (x_1, x_2): f'(c) = {f(x_2) - f(x_1) \over x_2 - x_1}$  
+$f(x_2) - f(x_1) = f'(c)(x_2-x_1)>0 \implies f(x_2) > f(x_1)$
+
+### Следствие 3
+
+ПУсть $f'(x) = 0$ на $(a, b), f(x)$ непрерывна на $[a, b] \implies f(x) = const$ на $[a, b]$
+
+## Непрерывные функции с прерывной производной (or something)
+
+$$f(x) = \begin{cases}
+{1 \over 2}x - x^2 \sin {1 \over x}, x \neq 0 \\
+0, x = 0
+\end{cases}$$  
+$\lim\limits_{x \to 0} f(x) = 0 \implies f$ непрерывна
+$$f'(x) = \begin{cases}
+{1 \over 2} - 2xsin{1 \over x} + {x^2 \cos {1 \over x} \over x^2}, x \neq 0 \\
+{1 \over 2}, x = 0 \\
+\end{cases} \\
+ \implies f'(x) = {1 \over 2} - 2xsin{1 \over x} + \cos {1 \over x}
+$$
+
+## Возрастающая в точке функция
+
+$f(x)$ возрастает в $x_0 \iff \exists u_\delta(x_0) : \forall x \in u_\delta(x_0) {\Delta f(x_0) \over \Delta x}>0 \iff$ если $f'(x_0) > 0$, то $f(x)$ возрастает в $x_0$
+
+## Правило Лопиталя
+
+Теорема. Пусть $f(x)$ и $g(x)$ непрерывны и дифференцируемы в $\dot u(x_0)$, $g(x), g'(x) \neq 0$ в $\dot u(x_0)$, пусть $\lim\limits_{x \to x_0} f(x) = \lim\limits_{x \to x_0} g(x) = 0$.  
+Тогда если $\exists \lim\limits_{x \to x_0} {f'(x) \over g'(x)}$, то он равен $\lim\limits_{x \to x_0} {f(x) \over g(x)}$
+
+### Доказательство
+
+Доопределим $f(x_0), g(x_0) = 0$. Тогда $f(x), g(x)$ непрерывны в $u(x_0)$  
+Рассмотрим $I = [x_0, x_0 + \Delta x]$, тогда $f(x), g(x)$ непрерывны в $I$, дифференцируемы в $(x_0, x_0 + \Delta x)$ и $g'(x) \neq 0$  
+Применим теорему Коши. $\exists c \in (x_0, x_0 + \Delta x) : {f(x_0 + \Delta x) - f(x_0) \over g(x_0 + \Delta x) - g(x_0)} = {f'(c) \over g'(c)} = {f(x_0 + \Delta x) \over g(x_0 + \Delta x)}$  
+$\lim\limits_{\Delta x \to 0} {f(x_0 + \Delta x) \over g(x_0 + \Delta x)} = \lim\limits_{c \to x_0} {f'(c) \over g'(c)} = \lim\limits_{x \to x_0} {f(x) \over g(x)}$
+
+### Следствия
+
+* теорема верна для $x_0 = \infty$
+  заменим $x \to \infty$ на $t = {1 \over x}, t \to 0$; теорема сводится к предыдущей
+* теорема верна для $\lim\limits_{x \to a} f(x) = \lim\limits_{x \to a} g(x) = \infty$
+
+### Примеры
+
+* $\lim\limits_{x \to 0} {\sin x \over x} = \lim\limits_{x \to 0} {\cos x \over 1} = 1$
+* $\lim\limits_{x \to 0} (1 + x)^{1 \over x} = \lim\limits_{x \to 0} e^{\ln (1 + x)^{1\over x}} = \lim\limits_{x \to 0} e^{{1 \over x} \ln (1 + x)} = \lim\limits_{x \to 0} e^{\ln (1 + x) \over x} = e^1$
+* $\lim\limits_{x \to +\infty} {e^x \over x^n} = \lim\limits_{x \to +\infty} {e^x \over nx^{-1}} = \dots = \lim\limits_{x \to +\infty} {e^x \over n!} = +\infty$
+* $\lim\limits_{x \to +\infty} {\ln x \over x^n} = \lim\limits_{x \to +\infty} {1 \over x nx^{n - 1}} = 0$

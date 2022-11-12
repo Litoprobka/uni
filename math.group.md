@@ -1,8 +1,8 @@
 ---
 id: MR4ykZPqoXGw6b1jif9LG
-title: Group Theory
-desc: ""
-updated: 1664962705652
+title: Group
+desc: ''
+updated: 1667819376305
 created: 1637403102607
 ---
 
@@ -10,10 +10,12 @@ created: 1637403102607
 
 > Группа - это множество, для которого определена бинарная операция $"\cdot"$ и выполняются следующие законы:
 
-1. Closure (закрытость?): $\forall x,y\in S,  x\cdot y \in S$
-2. Ассоциативность: $\forall x,y,z \in S,  x\cdot y\cdot(y\cdot z)=(x\cdot y)\cdot z$
+1. Closure (закрытость?): $\forall x,y\in S,  x\cdot y \in S$ (следует из определения операции)
+2. Ассоциативность: $\forall x,y,z \in S,  x \cdot (y \cdot z)=(x \cdot y) \cdot z$
 3. Identity (нейтральный элемент): $\exists e \in S, \forall x \in S,\ x\cdot e=e\cdot x=x$
 4. Инверсия: $\forall x \in S, \exists x^{-1},\ x\cdot x^{-1}=x^{-1}\cdot x = e$
+
+Если операция $\cdot$ коммутативна, то $S$ - коммутативная группа
 
 ### Пример
 
@@ -27,7 +29,7 @@ S = { $R,Q,Y,X_1, X_2,I$ } - множество операций с треуго
 
 | I   | R   | Q   | Y   | X1  | X2  |
 | --- | --- | --- | --- | --- | --- |
-| R   | X   | I   | X1  | X2  | Y   |
+| R   | Q   | I   | X1  | X2  | Y   |
 | Q   | I   | R   | X2  | Y   | X1  |
 | Y   | X2  | X1  | I   | Q   | R   |
 | X1  | Y   | X2  | R   | I   | Q   |
@@ -42,13 +44,20 @@ S = { $R,Q,Y,X_1, X_2,I$ } - множество операций с треуго
 
 ## Числа
 
-- Целые числа и операция сложения; identity = 0
-- Рациональные числа и операция сложения или умножения; identity = 1
+- $\Z$ и операция сложения; identity = 0
+- $\Q \setminus \lbrace 0 \rbrace$ и операция умножения; identity = 1
+- $\lbrace 2^n : n \in \Z \rbrace$, $\times$
+- $\Complex \setminus \lbrace 0 \rbrace$, $\times$
+- $\lbrace z \in \Complex : |z| = 1 \rbrace$, $\times$
+- $gl(n, \R)$ (матрицы $n \times n)$, $+$
+- $GL(n, \R)$ ($\lbrace m \in gl(n, \R) : |m| \neq 0 \rbrace$, $\times$) - некоммутативная группа
+- $2^\Omega$, $\oplus$; нейтральный элемент - $\emptyset$; обратный элемент для $a$ - тоже $a$  
+  _TODO: доказать_
 
 ### Изоморфизм
 
 Даны группы $S$, $T$ и функция $f: S\to T$.
-Если $\forall x \in S,\exists y in T,\ f(x)=y$ и $\forall x,y \in S,\ x\not=y \iff f(x)\not=f(y)$, то такая функция называется изоморфизмом. Для изоморфизмов выполняется тождество $f(a\cdot b)=f(a)\cdot f(b)$
+Если $\forall x \in S,\exists y \in T,\ f(x)=y$ и $\forall x,y \in S,\ x\not=y \iff f(x)\not=f(y)$, то такая функция называется изоморфизмом. Для изоморфизмов выполняется тождество $f(a\cdot b)=f(a)\cdot f(b)$
 
 ## Полугруппа
 
@@ -63,3 +72,9 @@ S = { $R,Q,Y,X_1, X_2,I$ } - множество операций с треуго
 - строки / списки и конкатенация
 - [[множества|math.set]], $\cap$ и $\Omega$ или $\cup$ и $\empty$
 - всевозможные `instance Monoid ...` в Haskell
+
+
+----
+
+$а \in G$  
+$ord(a)$ = наименьшее положительное $n : a^n = \epsilon$
