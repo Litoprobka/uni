@@ -194,10 +194,3 @@ B = \set{x, y, z} \\
 \#(2^B) = 8 \\
 \#(2^X) = 2^{\#X}
 $$
-
----
-2022-11-07
-
-$X$ - множество  
-$S(X) = \lbrace f : X \to X, f - \text{биекция} \rbrace$  
-$\forall f, g \in S(X)\quad f \circ g \in S(X)$

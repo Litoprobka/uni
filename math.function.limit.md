@@ -141,7 +141,7 @@ $\lim\limits_{x \to 0} \ln(1+x)/x = 1$
 
 ### Эквивалентность
 
-> Бесконечно малые функции при $x \to a,\quad \alpha(x) \sim \beta(x) \iff \exists \lim\limits_{x \to a}=1$
+> Беснечно малые функции при $x \to a,\quad \alpha(x) \sim \beta(x) \iff \exists \lim\limits_{x \to a}=1$
 
 #### Примеры
 
