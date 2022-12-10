@@ -2,7 +2,7 @@
 id: mxp3xpf0y85pqgnrxsqpc6n
 title: Дифференциальное исчисление функций нескольких вещественных переменных
 desc: ''
-updated: 1669386979372
+updated: 1670569651827
 created: 1668755902077
 ---
 *нам объясняют линейные пространства. Зачем?*
@@ -229,3 +229,203 @@ $$
 ### Теорема о промежуточных значениях
 
 *Наконец-то что-то отличается?*
+
+### Замечание
+
+Пусть $f(X) : \R^n \to R, f(X)$ - непрерывна, тогда множество $S = \lbrace X \in \R^n : f(X) = 0\rbrace$ - замкнуто
+
+### Теорема Кантора
+
+Пусть $f(X)$ непрерывна на $M$, где $M$ - ограниченное замкнутое множество. Тогда $f(X)$ равномерно непрерывна на $М$ 
+
+---
+
+## Частные производные
+
+> Частная производная $f(X)$ по $x_i$ в точке $X(x_{10}, x_{20}, \dots, x_{n0}) =
+\lim\limits_{\Delta \to 0}$ ${f(x_{10}, x_{20}, \dots, x_{i}+\Delta x, x_{i+1\,0}, \dots, x_{n_}) - f(X_0) \over \Delta x} = {\delta f(X_0) \over \delta x_i}$
+
+Геометрический смысл для $\R^2$ - тангенс угла наклона касательной при фиксированном $x$ или $y$
+$$
+f(x_0, y) \leadsto z = f(x_0, y_0) + {\delta f \over \delta y}(x_0, y_0)(y-y_0) \\
+f(x, y_0) \leadsto z = f(x_0, y_0) + {\delta f \over \delta x}(x_0, y_0)(x-x_0) \\
+\text{касательная плоскость } Z = f(x_0, y_0) + {\delta f \over \delta x}(X_0)(x-x_0) + {\delta f \over \delta y}(X_0)(y-y_0)
+$$
+
+### Вторая частная производная
+
+$$
+{\delta \over \delta x}({\delta f \over \delta x}) = {\delta^2 f \over \delta x^2}
+$$
+
+### Частные производные можно брать в любом порядке
+
+> $f(x, y)$ в окрестности $X_0$ имеет неприрывные частные производные второго порядка ${\delta^2 f \over \delta x \delta y}$ и ${\delta^2 f \over \delta y \delta x} \implies$ они равны
+
+Рассмотрим $h_f(X_0, \Delta X) = f(x_0 + \delta x, y_0 + \delta y) - f(x_0, y_0 + \Delta y) - f(x_0 + \Delta x, y_0) + f(x_0, y_0) = (f(x_0 + \Delta x, y_0) - f(x_0, y_0 + \Delta y)) - (f(x_0 + \Delta x, y_0) - f(x_0, y_0)) = 2(y_0 + \Delta y) - 2y_0 = (\text{по теореме Лагранжа}) = L_y(y_0 + \theta_1)\Delta y = (f'_y(x_0 + \Delta x, \theta_1) - f'_y(x_0, \theta_1))\Delta y = (f''_{xy}(\theta_2, \theta_1)\Delta x)\Delta y = f''_{xy}(\theta_2, \theta_1)\Delta x\Delta y \implies \dots \implies f''_{xy}(\theta_2, \theta_1)\Delta x\Delta y = f''_{yx}(\theta_3, \theta_4)\Delta y\Delta x \iff f''_{xy}(\theta_2, \theta_1) = f''_{yx}(\theta_3, \theta_4) \iff \dots \iff f''_{yx}(x_0, y_0) = f''_{xy}(x_0, y_0)$
+
+Общий случай:
+$$
+{\delta^k f \over \displaystyle\prod_{j = 1}^k \delta x_{i_j}}
+$$
+
+Если зафисксировать все переменные, кроме двух, то сводится к предыдущему
+
+Пусть $f(x,y,z)$ имеет в окрестности $X(x,y,z)$ все непрерывные частные производные 1-го порядка  
+$$
+\Delta f = f(x + \Delta x, y + \Delta y, z + \Delta z) - f(x, y, z) = \\
+f(x + \Delta x, y + \Delta y, z + \Delta z) - f(x, y + \Delta y, z + \Delta z) + f(x, y + \Delta y, z + \Delta z) + f(x, y, z + \Delta z) - f(x, y, z + \Delta z) - f(x, y, z) \\
+= f'_x(\theta_1, y + \Delta y, z + \Delta z)\Delta x + f'_y(x, \theta_2, z + \Delta z)\Delta y + f'_z(x, y, \theta_3)\Delta z \\
+= (f'_x(x, y, z) + \epsilon_x)\Delta x + (f'_y(x, y, z) + \epsilon_y)\Delta y + (f'_z(x, y, z) + \epsilon_z)\Delta z \\
+= \lim\limits_{\Delta \rho \to 0} (\epsilon_x{\Delta x \over \Delta \rho} + \epsilon_x{\Delta x \over \Delta \rho}+ \epsilon_x{\Delta x \over \Delta \rho}) = 0 \\
+
+\\
+\Delta \rho - \text{длина вектора приращения} \\
+\epsilon_x = f'_x(\theta_1, y + \Delta y, z + \Delta z) - f'_x(x, y, z) \to 0 \text{ при } \Delta \rho \to 0 \\
+\text{аналогично для } \epsilon_y, \epsilon_z
+$$
+
+
+## Дифференцируемость
+
+Функция $f(X)$ называется дифференцируемой в точке $X$, если в некоторой окрестности $u(X)$ приращение функции $\Delta f$ может быть записано в виде $\Delta f(X) = \sum A_i\Delta X_i$, где $A_i$ не зависят от $\Delta X$
+
+## Касательная плоскость
+
+Пусть поверхность $S : z = f(x, y)$, где ${\delta f \over \delta x}, {\delta f \over \delta y}$ - непрерывные функции в $X_0$. Рассмотрим плоскость $\Pi : Z = f(X_0) + {\delta f \over \delta x}(X_0)(x - x_0) + {\delta f \over \delta y}(X_0)(y - y_0)$
+
+$$
+M = (x, y, f(x, y)) \\
+N = (x, y, f(X_0) + {\delta f \over \delta x}(X_0)(x - x_0) + {\delta f \over \delta y}(X_0)(y - y_0)) \\
+|M - N| = \dots = o(|X-X_0|)
+$$
+
+В случае $\R^n$:
+$$
+\Pi : \displaystyle\sum_{i = 1}^n {\delta F \over x_i}(X)(x - x_i) = 0 
+$$
+
+## Дифференциал
+
+$f(X)$ - дифференцируема в $X \implies$ дифференциалом $f(X)$ называется главная линейная часть приращения функции и обозначается $df(X)$
+$$
+\Delta f(X) = \displaystyle\sum_{i = 1}^n A_i\Delta x_i + o(\Delta p) \\
+\implies df(X) = \displaystyle\sum_{i = 1}^n A_i\Delta x_i \\
+{\delta f \over \delta x_i}(X) = \lim\limits_{\Delta x_i \to 0} {\Delta f(X) \over \Delta x_i} = \dots = A_i \\
+\Delta f = df + o(\Delta \rho)
+$$
+
+## Теорема о производной сложной функции
+
+Пусть $f(X)$ дифференцируема в  $X$, $\phi_i(t)$ дифференцируемы в $t_0$, причём $x_i = \phi_i(t_0)$, тогда 
+$$
+{df(\phi_i(t), \dots)  \over dt}(t_0) = \sum {\delta t \over \delta x_i} {dx_i \over dt}(t_0)
+$$
+
+### Доказательство
+*TODO*
+
+## Теорема о дифференцируемости композиции (?)
+
+Пусть $f(X)$ дифференцируема в $X$, функции $\phi_i(T)$ дифференцируемы в $T$, причём $x_i = \phi_i(T), X \in \R^n, T \in \R^m$  
+Тогда $(f \circ \phi)(T)$ дифференцируема в $T$ и ${\delta f \over \delta t_j} = \displaystyle\sum_{j = 1}^n {\delta f \over \delta x_i} {delta x_i \over \delta t_j}\ \forall 1 \leq j \leq m$
+
+### Производная по направлению
+
+$$
+f(x_1, \dots, x_n) \\
+\vec n = (\alpha_1, \dots, \alpha_n) \\
+\text{рассмотрим } f(X + t\vec n), t \in \R > 0 \\
+
+{\delta f \over \delta n} - \text{производная по направлению } \vec n \\
+{\delta f \over \delta n} = \lim\limits_{t \to +0} {f(X+t\vec n) - f(X) \over t} = \\
+= \displaystyle\sum_{i = 1}^n {\delta t \over \delta x_i}{dx_i \over dt} = \overrightarrow{grad} f * \vec n, \overrightarrow{grad} f = ({\delta f \over \delta x_i}, \dots) \\
+{\delta f \over \delta \vec n} = \overrightarrow{grad} * \vec n = \sum {\delta f \over \delta x_i} \cos \alpha_i
+$$
+
+> повернхностью уровня функции $f(X)$ называется уравнение $f(X) = C$, где $C \in \R$ - константа
+
+> Вектор $\overrightarrow{grad} f(X)$ направлен в сторону предельного изменения функции
+
+> Вектор $\overrightarrow{grad} f(X)$ ортогонален поверхности уровня $f$, проходящей через $X$ $\implies \overrightarrow{grad} f(X)$ - вектор нормали касательной плоскости $f(X)$
+
+### Свойства дифференциала
+$$
+df(X) = \displaystyle\sum_{i = 1}^n {\delta t \over \delta x_i}\Delta x_i = \displaystyle\sum_{i = 1}^n {\delta t \over \delta x_i}dx_i
+$$
+
+
+*те же, что и у производных?*
+* $d(f + g) = df + dg$
+* $d(f * g) = df * g + dg * f$
+* $d{f \over g} = {gdf - fdg \over g^2}$
+* "инвариантность 1-го дифференциала" (а записывать лень)
+
+---
+$$
+d^2 f(X) = d(d\,f(X)) = d (\displaystyle\sum_{i=1}^n {\delta f\over \delta x}(X)dx_i)
+$$
+
+> Теорема. $d^k f(x) = (\displaystyle\sum_{i=1}^k {\delta \over \delta x_i} d_i)^kf(X)$  
+
+## Формула Тейлора
+
+$$
+\Delta f(x) = df(x) + {d^2f(x)\over 2!} + \dots + {d^nf(x) \over n!} + \dots
+$$
+
+### Теорема
+
+Пусть $X \in \R^n, f(X)$ определена в $u(X_0)$, имеет непрерывные частные производные в $u(X_0)$ вплоть до $k$-го порядка, тогда  
+$$
+\Delta f(X_0) = df(X_0) + {d^2f(X_0)\over 2!} + \dots + {d^kf(X_0) \over k!} + {d^{k+1}f(X_0 + \theta \Delta X) \over (k+1)!} \\
+d^i(X_0) = (\displaystyle\sum {\delta \over \delta x_1}\Delta x_1)f(X_0)\ \forall i
+$$
+
+---
+
+Доказать: $f^{(k)}(0) = 0$ для
+$$
+f(x) = \begin{cases}
+e^{1 \over x} & x \neq 0
+0 & x = 0
+\end{cases} 
+$$
+
+---
+## Точка локального экстремума
+Точка $X_0$ -  локальный экстремиум для $f(X)$, если  
+$$
+\exists u_\epsilon(X_0) : (\forall x \in u_\epsilon(X_0)\ f(X) < f(X_0)) f(X) > f(X_0)
+$$
+
+## Матрица Гессе
+
+Матрица $({\delta^2 f(x_0) \over \delta x_i \delta x_j}) = G_{ij}$ называется матрицей Гессе функции $f(X)$ в $X_0$
+
+## Обобщённое скалярное произведение (симметричная билинейная форма)
+
+Симметричной билинейной формой называется отображение $V^n \times V^n \to \R, (\vec a \to \vec b) \leadsto B(\vec a, \vec b) :$
+* симметричность
+* дистрибутивностью по сложению
+* дистрибутивность по умножению на число (или это не так называется?)
+
+$f(\vec a, \vec b) = \vec a B_ij \vec b^T$
+
+### Примеры
+* скалярное произведение - $B = E$ (единичная матрица)
+* $B = -E$
+
+### Квадратичная форма
+
+$q(\vec X) = B(\vec X, \vec X)$ - квадратичная форма, ассоциированная с билинейной формой $B$.
+* $q(\vec X)$ положительно определена $\iff q(\vec X) > 0\ \forall X \in V^n$
+* $q(\vec X)$ отрицательно определена $\iff q(\vec X) < 0\ \forall X \in V^n$
+* в противном случае $q(\vec X)$ - неопределённая
+
+Всегда можно выбрать такой базис, что $B$ будет состоять из 1, -1 и 0 на главной диагонали  
+$k, l, m$ - количество единиц, минус единиц и нулей в таком представлении - инварианты
+
+### Критерий Сильвестра
+
+*TODO*
